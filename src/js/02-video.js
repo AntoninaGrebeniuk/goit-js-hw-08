@@ -9,7 +9,7 @@ const savedTime = localStorage.getItem(CURRENT_TIME);
 
 const onPlay = function (data) {
   // data is an object containing properties specific to that event
-  localStorage.setItem(CURRENT_TIME, JSON.stringify(data.seconds));
+  localStorage.setItem(CURRENT_TIME, data.seconds);
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
