@@ -7,7 +7,7 @@ const message = document.querySelector('.feedback-form textarea');
 const STORAGE_KEY = 'feedback-form-state';
 const savedData = localStorage.getItem(STORAGE_KEY);
 const parseData = JSON.parse(savedData);
-const formData = {};
+let formData = {};
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onTextareaInput, 500));
@@ -40,5 +40,7 @@ function fillTextarea() {
     parseData.message === undefined
       ? (message.value = '')
       : (message.value = parseData.message);
+
+    formData = parseData;
   }
 }
